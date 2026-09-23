@@ -92,12 +92,6 @@
     </div>
 
     <script>
-        // Настройка Tailwind
-        function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent', '#FFD700');
-        }
-
-        // Отправка формы в Google Таблицу
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -109,11 +103,11 @@
                 date: new Date().toLocaleString('ru-RU')
             };
 
-            // === ВАЖНО: сюда вставишь свою ссылку от Google Apps Script ===
-            const scriptURL = 'https://script.google.com/macros/s/ТОЛЬКО_ТВОЯ_ССЫЛКА/exec';
+            // === Твоя ссылка на Google Таблицу ===
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwiKgYNukMbQnjpNhaKPVpbjqBMA7U2JceLPkBghg1fFX7thFZVSovbHmCngMb5xeMH/exec';
 
             try {
-                const response = await fetch(scriptURL, {
+                await fetch(scriptURL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -130,8 +124,6 @@
                 alert('Произошла ошибка. Попробуйте ещё раз или позвоните нам.');
             }
         });
-
-        initializeTailwind();
     </script>
 </body>
 </html>
